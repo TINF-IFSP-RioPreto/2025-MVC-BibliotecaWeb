@@ -1,0 +1,38 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+}
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Título do livro</th>
+        <th>Editora</th>
+        <th>Autores</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var livro in ViewBag.dados)
+    {
+        <tr>
+            <td>
+                @livro.LivroTituloOriginal
+            </td>
+            <td>
+                @livro.LivroEditora.EditoraNome
+            </td>
+            <td>
+                <ul>
+                    @foreach (var autor in livro.AutoresDoLivro)
+                    {
+                        <li>@autor.Autor.AutorNome</li>
+                    }
+                </ul>
+            </td>
+            <td>
+                <a asp-controller="Livro" asp-action="Detalhar" asp-route-id="@livro.LivroID">Detalhar</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

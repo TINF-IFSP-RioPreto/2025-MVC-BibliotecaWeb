@@ -18,9 +18,15 @@ public class AutorConfiguration : IEntityTypeConfiguration<Autor>
     public void Configure(EntityTypeBuilder<Autor> builder)
     {
         builder.HasKey(p => p.AutorID);
+        
         builder.HasIndex(p => p.AutorNome);
-        builder.Property(p => p.AutorNome).HasMaxLength(80).IsRequired();
-        builder.Property(p => p.AutorEmail).HasMaxLength(80);
-        builder.Property(p => p.AutorDataNascimento).HasDefaultValue(DateOnly.FromDateTime(DateTime.Now));
+        
+        builder.Property(p => p.AutorNome)
+            .HasMaxLength(80)
+            .IsRequired();
+        builder.Property(p => p.AutorEmail)
+            .HasMaxLength(80);
+        builder.Property(p => p.AutorDataNascimento)
+            .HasDefaultValue(DateOnly.FromDateTime(DateTime.Now));
     }
 }

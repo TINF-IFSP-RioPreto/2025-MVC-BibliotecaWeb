@@ -8,7 +8,6 @@ public class BibliotecaDbContext : DbContext
 {
     public BibliotecaDbContext(DbContextOptions<BibliotecaDbContext> options) : base(options)
     {
-        // Injeção por construtor
     }
     
     public DbSet<Autor> Autores { get; set; }

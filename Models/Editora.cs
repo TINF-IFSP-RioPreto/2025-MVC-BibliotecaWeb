@@ -27,13 +27,20 @@ public class EditoraConfiguration : IEntityTypeConfiguration<Editora>
 
         builder.HasIndex(p => p.EditoraNome);
 
-        builder.Property(p => p.EditoraNome).HasMaxLength(80).IsRequired();
-        builder.Property(p => p.EditoraLogradouro).HasMaxLength(80);
-        builder.Property(p => p.EditoraComplemento).HasMaxLength(80);
-        builder.Property(p => p.EditoraCidade).HasMaxLength(60).IsRequired();
-        builder.Property(p => p.EditoraUF).HasMaxLength(2).IsRequired();
-        builder.Property(p => p.EditoraPais).HasMaxLength(40).IsRequired();
-        builder.Property(p => p.EditoraCEP).HasMaxLength(12);
+        builder.Property(p => p.EditoraNome)
+            .HasMaxLength(80).IsRequired();
+        builder.Property(p => p.EditoraLogradouro)
+            .HasMaxLength(80);
+        builder.Property(p => p.EditoraComplemento)
+            .HasMaxLength(80);
+        builder.Property(p => p.EditoraCidade)
+            .HasMaxLength(60).IsRequired();
+        builder.Property(p => p.EditoraUF)
+            .HasMaxLength(2).IsRequired();
+        builder.Property(p => p.EditoraPais)
+            .HasMaxLength(40).IsRequired();
+        builder.Property(p => p.EditoraCEP)
+            .HasMaxLength(12);
         builder.Property(p => p.EditoraTelefone).HasMaxLength(15);
 
         builder.HasMany<Livro>(p => p.EditoraLivros).WithOne(p => p.LivroEditora);
